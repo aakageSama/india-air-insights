@@ -1,1 +1,4 @@
 project_id = "gyyehcbkwworxtqdkuoi"
+
+[functions.openaq-proxy]
+verify_jwt = false
