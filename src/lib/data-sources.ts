@@ -1,10 +1,11 @@
 // Data Source Integration Layer
 // Handles fetching and normalizing data from multiple AQI sources
-// NOTE: OpenAQ API is used as primary live source
+// NOTE: OpenAQ API is used as primary live source via edge function proxy
 // Government and Historical data use cached/mock data for demo purposes
 
 import { AQIReading, Pollutant, City } from '@/types/aqi';
 import { calculateFreshness, normalizeAQI } from './aqi-utils';
+import { supabase } from '@/integrations/supabase/client';
 
 // Cached historical data (simulating Kaggle-sourced dataset)
 // In production, this would be loaded from a JSON file or database
@@ -37,26 +38,20 @@ const GOVERNMENT_DATA: Record<string, { aqi: number; pm25: number; pm10: number;
 };
 
 /**
- * Fetches AQI data from OpenAQ API
+ * Fetches AQI data from OpenAQ API via edge function proxy
  * Primary live data source for international comparison
  */
 export async function fetchOpenAQData(city: City): Promise<AQIReading> {
   try {
     const cityName = city.openAqName || city.name;
-    const response = await fetch(
-      `https://api.openaq.org/v2/latest?country=IN&city=${encodeURIComponent(cityName)}&limit=1`,
-      {
-        headers: {
-          'Accept': 'application/json',
-        }
-      }
-    );
     
-    if (!response.ok) {
-      throw new Error(`OpenAQ API returned ${response.status}`);
+    const { data, error } = await supabase.functions.invoke('openaq-proxy', {
+      body: { city: cityName, country: 'IN', limit: 1 }
+    });
+    
+    if (error) {
+      throw new Error(error.message || 'Edge function error');
     }
-    
-    const data = await response.json();
     
     if (!data.results || data.results.length === 0) {
       // No data available for this city - return unavailable reading
