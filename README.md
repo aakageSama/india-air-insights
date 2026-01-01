@@ -7,3 +7,17 @@ A key feature of the system is its optional IoT integration. Users may choose to
 The project is intentionally minimal in infrastructure. It avoids heavy backend services, databases, or machine-learning models, focusing instead on deterministic logic, explainability, and system design judgment. All normalization, validation, and trust reasoning is transparent and auditable.
 Overall, this platform demonstrates how an IoT-ready environmental intelligence system should be designed when data, systems, and reality do not align—prioritizing honesty, interpretability, and responsible decision-making over superficial accuracy.
 
+## To get the project running in your local system -
+Step 1 
+  Either download the zip file and unzip it 
+  or Remote pull using git 
+
+Step 2 
+  After getting files run-
+  1. `npm install`
+  2. `npm run dev`
+
+Website -
+
+
+Public Hosted Url - Soon 
