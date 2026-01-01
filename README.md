@@ -17,7 +17,7 @@ Step 2
   1. `npm install`
   2. `npm run dev`
 
-Website -
-
+Website Eg -
+![https://github.com/aakageSama/india-air-insights/blob/main/s1.png?raw=true]
 
 Public Hosted Url - Soon 
