@@ -20,4 +20,8 @@ Step 2
 Website Eg -
 ![Alt text](https://github.com/aakageSama/india-air-insights/blob/main/s1.png?raw=true)
 
+![Alt text](https://github.com/aakageSama/india-air-insights/blob/main/s2.png?raw=true)
+
+Project Docs and Research - [Documentation](https://drive.google.com/file/d/1jAeZ7HE2_ROpMsNsggvLisae0LjF8Gy7/view?usp=sharing)
+
 Public Hosted Url - Soon 
