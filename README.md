@@ -18,6 +18,6 @@ Step 2
   2. `npm run dev`
 
 Website Eg -
-![https://github.com/aakageSama/india-air-insights/blob/main/s1.png?raw=true]
+![Alt text](https://github.com/aakageSama/india-air-insights/blob/main/s1.png?raw=true)
 
 Public Hosted Url - Soon 
